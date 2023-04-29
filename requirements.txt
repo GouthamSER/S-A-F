@@ -4,3 +4,4 @@ Pyrogram
 Pymongo
 Requests 
 TgCrypto
+aiohttp
