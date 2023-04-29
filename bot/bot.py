@@ -2,7 +2,7 @@ from pyrogram import Client, enums, __version__
 
 from . import API_HASH, API_ID, LOGGER, BOT_TOKEN 
 
-from plugins.webcode import bot_run
+from bot.plugins.webcode import bot_run
 from os import environ
 from aiohttp import web as webserver
 
