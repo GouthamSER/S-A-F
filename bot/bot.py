@@ -2,6 +2,12 @@ from pyrogram import Client, enums, __version__
 
 from . import API_HASH, API_ID, LOGGER, BOT_TOKEN 
 
+from plugins.webcode import bot_run
+from os import environ
+from aiohttp import web as webserver
+
+PORT_CODE = environ.get("PORT", "8080")
+
 from .user import User
 
 class Bot(Client):
@@ -30,6 +36,12 @@ class Bot(Client):
             f"@{bot_details.username}  started! "
         )
         self.USER, self.USER_ID = await User().start()
+        
+        client = webserver.AppRunner(await bot_run())
+        await client.setup()
+        bind_address = "0.0.0.0"
+        await webserver.TCPSite(client, bind_address,
+        PORT_CODE).start()
 
     async def stop(self, *args):
         await super().stop()
