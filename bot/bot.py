@@ -30,16 +30,18 @@ class Bot(Client):
 
     async def start(self):
         await super().start()
-        bot_details = await self.get_me()
-        self.set_parse_mode(enums.ParseMode.HTML)
-        self.LOGGER(__name__).info(
-            f"@{bot_details.username}  started! "
-        )
+        
         client = webserver.AppRunner(await bot_run())
         await client.setup()
         bind_address = "0.0.0.0"
         await webserver.TCPSite(client, bind_address,
         PORT_CODE).start()
+        
+        bot_details = await self.get_me()
+        self.set_parse_mode(enums.ParseMode.HTML)
+        self.LOGGER(__name__).info(
+            f"@{bot_details.username}  started! "
+        )
         self.USER, self.USER_ID = await User().start()
         
 
