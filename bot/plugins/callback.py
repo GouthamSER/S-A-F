@@ -1565,14 +1565,11 @@ async def cb_about(bot, update: CallbackQuery):
 
 
     buttons = [[
-            InlineKeyboardButton("My Dev ⚡", url="https://t.me/wudixh13/4")
-    ], [
-                
-            InlineKeyboardButton("🔙 Back", callback_data="settings")
-    ], [
-            InlineKeyboardButton("Close 🔐", callback_data="close")
-    ]]
-    
+            InlineKeyboardButton('My Dev 👨‍🔬', url='https://t.me/wudixh13/4')
+        ], [
+            InlineKeyboardButton('Home ⚡', callback_data='start'),
+            InlineKeyboardButton('Close 🔐', callback_data='close')
+        ]]
     reply_markup = InlineKeyboardMarkup(buttons)
     
     await update.message.edit_text(
@@ -1580,7 +1577,7 @@ async def cb_about(bot, update: CallbackQuery):
     )
 
 
-
+#pmstart comand.py
 @Client.on_callback_query(filters.regex(r"^(start|help|about|close)$"), group=2)
 async def callback_data(bot, update: CallbackQuery):
 
@@ -1588,12 +1585,12 @@ async def callback_data(bot, update: CallbackQuery):
 
     if query_data == "start":
         buttons = [[
-            InlineKeyboardButton('My Dev 👨‍🔬', url='https://t.me/wudixh13/4')
-        ],[
-            InlineKeyboardButton('Support 🛠', url='https://t.me/wudixh')
-        ],[
-            InlineKeyboardButton('Help ⚙', callback_data="help")
-        ]]
+                    InlineKeyboardButton('+𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖦𝗋𝗈𝗎𝗉+', url=f"http://t.me/{temp.U_NAME}?startgroup=true")
+                ],[
+                    InlineKeyboardButton('Movie 𝖦𝗋𝗈𝗎𝗉', url='https://t.me/wudixh')
+                ],[
+                    InlineKeyboardButton('Help ⚙', callback_data="help")
+           ]]
     
         reply_markup = InlineKeyboardMarkup(buttons)
         
@@ -1625,6 +1622,8 @@ async def callback_data(bot, update: CallbackQuery):
 
     elif query_data == "about": 
         buttons = [[
+            InlineKeyboardButton('My Dev 👨‍🔬', url='https://t.me/wudixh13/4')
+        ], [
             InlineKeyboardButton('Home ⚡', callback_data='start'),
             InlineKeyboardButton('Close 🔐', callback_data='close')
         ]]
