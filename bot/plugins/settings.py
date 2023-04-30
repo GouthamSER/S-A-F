@@ -26,44 +26,19 @@ async def settings(bot, update):
     bot_first_name= bot_info.first_name
     
     text =f"<i>{bot_first_name}'s</i> Settings Pannel.....\n"
-    text+=f"\n<i>You Can Use This Menu To Change Connectivity And Know Status Of Your Every Connected Channel, Change Filter Types, Configure Filter Results And To Know Status Of Your Group...</i>"
+    text+=f"\n<b>You Can Use This Menu To Change Connectivity And Know Status Of Your Every Connected Channel, Change Filter Types, Configure Filter Results And To Know Status Of Your Group...</b>"
     
-    buttons = [
-        [
-            InlineKeyboardButton
-                (
-                    "Channels", callback_data=f"channel_list({chat_id})"
-                ), 
-            
-            InlineKeyboardButton
-                (
-                    "Filter Types", callback_data=f"types({chat_id})"
-                )
-        ],
-        [
-            InlineKeyboardButton
-                (
-                    "Configure 🛠", callback_data=f"config({chat_id})"
-                )
-        ], 
-        [
-            InlineKeyboardButton
-                (
-                    "Status", callback_data=f"status({chat_id})"
-                ),
-            
-            InlineKeyboardButton
-                (
-                    "About", callback_data=f"about({chat_id})"
-                )
-        ],
-        [
-            InlineKeyboardButton
-                (
-                    "Close 🔐", callback_data="close"
-                )
-        ]
-    ]
+    buttons = [[
+            InlineKeyboardButton("Channels", callback_data=f"channel_list({chat_id})"),
+            InlineKeyboardButton("Filter Types", callback_data=f"types({chat_id})")
+    ], [
+            InlineKeyboardButton("Configure 🛠", callback_data=f"config({chat_id})"),
+            InlineKeyboardButton("Status", callback_data=f"status({chat_id})")
+    ], [
+            InlineKeyboardButton("About", callback_data=f"about({chat_id})")
+    ], [
+            InlineKeyboardButton("Close 🔐", callback_data="close")
+    ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
     
