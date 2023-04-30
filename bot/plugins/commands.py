@@ -28,7 +28,7 @@ async def start(bot, update):
                 parse_mode=enums.ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup(
                         [[
-                            InlineKeyboardButton('Developers', url="https://t.me/wudixh13/4")
+                            InlineKeyboardButton('Movie Group', url="https://t.me/wudixh")
                         ]]
                 ))
         except Exception as e:
@@ -37,7 +37,7 @@ async def start(bot, update):
         return
 #pmstart
     buttons = [[
-                    InlineKeyboardButton('+𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖦𝗋𝗈𝗎𝗉+', url=f"http://t.me/im_kuttu2_bot?startgroup=true")
+                    InlineKeyboardButton('𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖦𝗋𝗈𝗎𝗉', url=f"http://t.me/im_kuttu2_bot?startgroup=true")
                 ],[
                     InlineKeyboardButton('Movie 𝖦𝗋𝗈𝗎𝗉', url='https://t.me/wudixh')
                 ],[
