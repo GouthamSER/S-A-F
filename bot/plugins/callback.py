@@ -180,16 +180,42 @@ async def cb_settings(bot, update: CallbackQuery):
     text+=f"\n<i>You Can Use This Menu To Change Connectivity And Know Status Of Your Every Connected Channel, Change Filter Types, Configure Filter Results And To Know Status Of Your Group...</i>"
     
     
-    buttons = [[
-            InlineKeyboardButton("Channels", callback_data=f"channel_list({chat_id})"),
-            InlineKeyboardButton("Filter Types", callback_data=f"types({chat_id})"),
-            InlineKeyboardButton("Configure 🛠", callback_data=f"config({chat_id})")
-    ], [
-            InlineKeyboardButton("Status", callback_data=f"status({chat_id})"),
-            InlineKeyboardButton("About", callback_data=f"about({chat_id})")
-    ], [
-            InlineKeyboardButton("Close 🔐", callback_data="close")
-    ]]
+    buttons = [
+        [
+            InlineKeyboardButton
+                (
+                    "Channels", callback_data=f"channel_list({chat_id})"
+                ), 
+
+            InlineKeyboardButton
+                (
+                    "Filter Types", callback_data=f"types({chat_id})"
+                )
+        ],
+        [
+            InlineKeyboardButton
+                (
+                    "Configure 🛠", callback_data=f"config({chat_id})"
+                )
+        ], 
+        [
+            InlineKeyboardButton
+                (
+                    "Status", callback_data=f"status({chat_id})"
+                ),
+
+            InlineKeyboardButton
+                (
+                    "About", callback_data=f"about({chat_id})"
+                )
+        ],
+        [
+            InlineKeyboardButton
+                (
+                    "Close 🔐", callback_data="close"
+                )
+        ]
+    ]
 
     reply_markup = InlineKeyboardMarkup(buttons)
 
@@ -405,14 +431,19 @@ async def cb_info(bot, update: CallbackQuery):
 
 
     if active_chats:
-        buttons = [[
-                        InlineKeyboardButton("🚨 Disconnect 🚨", callback_data=f"warn({channel_id}|{channel_name}|disconnect)"),
-                        InlineKeyboardButton("Delete ❌", callback_data=f"warn({channel_id}|{channel_name}|c_delete)")
-                  ]]
-    else:
-        buttons = [[
-                        InlineKeyboardButton("💠 Connect 💠", callback_data=f"warn({channel_id}|{channel_name}|connect)"),
-                        InlineKeyboardButton("Delete ❌", callback_data=f"warn({channel_id}|{channel_name}|c_delete)")
+        buttons = buttons = [
+                    [
+                        InlineKeyboardButton
+                            (
+                                "🚨 Disconnect 🚨", callback_data=f"warn({channel_id}|{channel_name}|disconnect)"
+                            ),
+
+                        InlineKeyboardButton
+                            (
+                                "Delete ❌", callback_data=f"warn({channel_id}|{channel_name}|c_delete)"
+                            )
+                    ]
+        ]
 
     buttons.append(
             [
