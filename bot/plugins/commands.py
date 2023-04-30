@@ -27,24 +27,17 @@ async def start(bot, update):
                 caption = caption,
                 parse_mode=enums.ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup(
-                    [
-                        [
-                            InlineKeyboardButton
-                                (
-                                    'Developers', url="https://t.me/wudixh13/4"
-                                )
-                        ]
-                    ]
-                )
-            )
+                        [[
+                            InlineKeyboardButton('Developers', url="https://t.me/wudixh13/4")
+                        ]]
+                ))
         except Exception as e:
             await update.reply_text(f"<b>Error:</b>\n<code>{e}</code>", True, parse_mode=enums.ParseMode.HTML)
             LOGGER(__name__).error(e)
         return
 
     buttons = [[
-        InlineKeyboardButton('Developers', url='https://t.me/wudixh13/4'),
-        InlineKeyboardButton('Source Code 🧾', url ='https://github.com/')
+        InlineKeyboardButton('Developers', url='https://t.me/wudixh13/4')
     ],[
         InlineKeyboardButton('Help ⚙', callback_data="help")
     ]]
