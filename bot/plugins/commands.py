@@ -37,7 +37,7 @@ async def start(bot, update):
         return
 #pmstart
     buttons = [[
-                    InlineKeyboardButton('+𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖦𝗋𝗈𝗎𝗉+', url=f"http://t.me/{temp.U_NAME}?startgroup=true")
+                    InlineKeyboardButton('+𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖦𝗋𝗈𝗎𝗉+', url=f"http://t.me/?startgroup=true")
                 ],[
                     InlineKeyboardButton('Movie 𝖦𝗋𝗈𝗎𝗉', url='https://t.me/wudixh')
                 ],[
