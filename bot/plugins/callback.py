@@ -142,7 +142,7 @@ async def cb_navg(bot, update: CallbackQuery):
     
     reply_markup = InlineKeyboardMarkup(temp_results)
     
-    text=f"<i>Found</i> <code>{leng}</code> <i>Results For Your Query:</i> <code>{query}</code>"
+    text=f"<i>Results Available...</i>"  #Result tiltle
         
     try:
         await update.message.edit(
@@ -179,42 +179,17 @@ async def cb_settings(bot, update: CallbackQuery):
     text =f"<i>{bot_fname}'s</i> Settings Pannel.....\n"
     text+=f"\n<i>You Can Use This Menu To Change Connectivity And Know Status Of Your Every Connected Channel, Change Filter Types, Configure Filter Results And To Know Status Of Your Group...</i>"
     
-    buttons = [
-        [
-            InlineKeyboardButton
-                (
-                    "Channels", callback_data=f"channel_list({chat_id})"
-                ), 
-            
-            InlineKeyboardButton
-                (
-                    "Filter Types", callback_data=f"types({chat_id})"
-                )
-        ],
-        [
-            InlineKeyboardButton
-                (
-                    "Configure 🛠", callback_data=f"config({chat_id})"
-                )
-        ], 
-        [
-            InlineKeyboardButton
-                (
-                    "Status", callback_data=f"status({chat_id})"
-                ),
-            
-            InlineKeyboardButton
-                (
-                    "About", callback_data=f"about({chat_id})"
-                )
-        ],
-        [
-            InlineKeyboardButton
-                (
-                    "Close 🔐", callback_data="close"
-                )
-        ]
-    ]
+    
+    buttons = [[
+            InlineKeyboardButton("Channels", callback_data=f"channel_list({chat_id})"),
+            InlineKeyboardButton("Filter Types", callback_data=f"types({chat_id})"),
+            InlineKeyboardButton("Configure 🛠", callback_data=f"config({chat_id})")
+    ], [
+            InlineKeyboardButton("Status", callback_data=f"status({chat_id})"),
+            InlineKeyboardButton("About", callback_data=f"about({chat_id})")
+    ], [
+            InlineKeyboardButton("Close 🔐", callback_data="close")
+    ]]
 
     reply_markup = InlineKeyboardMarkup(buttons)
 
@@ -423,59 +398,29 @@ async def cb_info(bot, update: CallbackQuery):
         status = "Disconnected"
 
     text=f"<i>Info About <b>{channel_name}</b></i>\n"
-    text+=f"\n<i>Channel Name:</i> <code>{channel_name}</code>\n"
-    text+=f"\n<i>Channel ID:</i> <code>{channel_id}</code>\n"
-    text+=f"\n<i>Channel Files:</i> <code>{f_count}</code>\n"
-    text+=f"\n<i>Current Status:</i> <code>{status}</code>\n"
+    text+=f"\n<i>Channel Name:</i> {channel_name}\n"
+    text+=f"\n<i>Channel ID:</i> {channel_id}\n"
+    text+=f"\n<i>Channel Files:</i> {f_count}\n"
+    text+=f"\n<i>Current Status:</i> {status}\n"
 
 
     if active_chats:
-        buttons = [
-                    [
-                        InlineKeyboardButton
-                            (
-                                "🚨 Disconnect 🚨", callback_data=f"warn({channel_id}|{channel_name}|disconnect)"
-                            ),
-                        
-                        InlineKeyboardButton
-                            (
-                                "Delete ❌", callback_data=f"warn({channel_id}|{channel_name}|c_delete)"
-                            )
-                    ]
-        ]
-
+        buttons = [[
+                        InlineKeyboardButton("🚨 Disconnect 🚨", callback_data=f"warn({channel_id}|{channel_name}|disconnect)"),
+                        InlineKeyboardButton("Delete ❌", callback_data=f"warn({channel_id}|{channel_name}|c_delete)")
+                  ]]
     else:
-        buttons = [ 
-                    [
-                        InlineKeyboardButton
-                            (
-                                "💠 Connect 💠", callback_data=f"warn({channel_id}|{channel_name}|connect)"
-                            ),
-                        
-                        InlineKeyboardButton
-                            (
-                                "Delete ❌", callback_data=f"warn({channel_id}|{channel_name}|c_delete)"
-                            )
-                    ]
-        ]
+        buttons = [[
+                        InlineKeyboardButton("💠 Connect 💠", callback_data=f"warn({channel_id}|{channel_name}|connect)"),
+                        InlineKeyboardButton("Delete ❌", callback_data=f"warn({channel_id}|{channel_name}|c_delete)")
 
-    buttons.append(
-            [
-                InlineKeyboardButton
-                    (
-                        "Delete Filters ⚠", callback_data=f"warn({channel_id}|{channel_name}|f_delete)"
-                    )
-            ]
-    )
+    buttons.append([
+                InlineKeyboardButton("Delete Filters ⚠", callback_data=f"warn({channel_id}|{channel_name}|f_delete)")
+    ])
     
-    buttons.append(
-            [
-                InlineKeyboardButton
-                    (
-                        "🔙 Back", callback_data=f"channel_list({chat_id})"
-                    )
-            ]
-    )
+    buttons.append([
+                InlineKeyboardButton("🔙 Back", callback_data=f"channel_list({chat_id})")
+            ])
 
     reply_markup = InlineKeyboardMarkup(buttons)
         
@@ -511,12 +456,12 @@ async def cb_connect(bot, update: CallbackQuery):
         await update.answer(f"{channel_name} Is Aldready in Active Connection", show_alert=True)
         return
 
-    text= f"<i>Sucessfully Connected To</i> <code>{channel_name}</code>\n"
+    text= f"<i>Sucessfully Connected To</i> {channel_name}\n"
     text+=f"\n<i>Info About <b>{channel_name}</b></i>\n"
-    text+=f"\n<i>Channel Name:</i> <code>{channel_name}</code>\n"
-    text+=f"\n<i>Channel ID:</i> <code>{channel_id}</code>\n"
-    text+=f"\n<i>Channel Files:</i> <code>{f_count}</code>\n"
-    text+=f"\n<i>Current Status:</i> <code>Connected</code>\n"
+    text+=f"\n<i>Channel Name:</i> {channel_name}\n"
+    text+=f"\n<i>Channel ID:</i> {channel_id}\n"
+    text+=f"\n<i>Channel Files:</i> {f_count}\n"
+    text+=f"\n<i>Current Status:</i> Connected\n"
 
     buttons = [
                 [
@@ -955,21 +900,21 @@ async def cb_config(bot, update: CallbackQuery):
     pm_file_chat  = settings["configs"].get("pm_fchat", False)
     accuracy_point = settings["configs"].get("accuracy", 0.80)
     
-    text=f"<i><b>Configure Your <u><code>{chat_name}</code></u> Group's Filter Settings...</b></i>\n"
+    text=f"<i><b>Configure Your <u>{chat_name}</u> Group's Filter Settings...</b></i>\n"
     
     text+=f"\n<i>{chat_name}</i> Current Settings:\n"
 
-    text+=f"\n - Max Filter: <code>{mf_count}</code>\n"
+    text+=f"\n - Max Filter: {mf_count}\n"
     
     text+=f"\n - Max Pages: <code>{mp_count}</code>\n"
     
-    text+=f"\n - Max Filter Per Page: <code>{mr_count}</code>\n"
+    text+=f"\n - Max Filter Per Page: {mr_count}\n"
 
-    text+=f"\n - Accuracy Percentage: <code>{accuracy_point}</code>\n"
+    text+=f"\n - Accuracy Percentage: {accuracy_point}\n"
     
-    text+=f"\n - Show Invitation Link: <code>{show_invite}</code>\n"
+    text+=f"\n - Show Invitation Link: {show_invite}\n"
     
-    text+=f"\n - Provide File In Bot PM: <code>{pm_file_chat}</code>\n"
+    text+=f"\n - Provide File In Bot PM: {pm_file_chat}\n"
     
     text+="\nAdjust Above Value Using Buttons Below... "
     buttons=[
@@ -1448,7 +1393,7 @@ async def cb_set(bot, update: CallbackQuery):
     
     prev = await db.find_chat(chat_id)
 
-    accuracy = float(prev["configs"].get("accuracy", 0.80))
+    accuracy = float(prev["configs"].get("accuracy", 0.50))
     max_pages = int(prev["configs"].get("max_pages"))
     max_results = int(prev["configs"].get("max_results"))
     max_per_page = int(prev["configs"].get("max_per_page"))
@@ -1525,9 +1470,9 @@ async def cb_status(bot, update: CallbackQuery):
     total_filters, total_chats, total_achats = await db.status(chat_id)
     
     text = f"<b><i>Status Of {chat_name}</i></b>\n"
-    text += f"\n<b>Total Connected Chats:</b> <code>{total_chats}</code>\n"
-    text += f"\n<b>Total Active Chats:</b> <code>{total_achats}</code>\n"
-    text += f"\n<b>Total Filters:</b> <code>{total_filters}</code>"
+    text += f"\n<b>Total Connected Chats:</b> {total_chats}\n"
+    text += f"\n<b>Total Active Chats:</b> {total_achats}\n"
+    text += f"\n<b>Total Filters:</b> {total_filters}"
     
     buttons = [[
         InlineKeyboardButton("🔙 Back", callback_data="settings"),
@@ -1554,7 +1499,7 @@ async def cb_about(bot, update: CallbackQuery):
     if user_id not in VERIFY.get(str(chat_id)):
         return
 
-    
+    # BOT UpTIME
     text=f"<i><u>Bot's Status</u></i>\n"
    
     text+=f"\n<b><i>Bot's Uptime:</i></b> <code>{time_formatter(time.time() - start_uptime)}</code>\n"
@@ -1568,7 +1513,7 @@ async def cb_about(bot, update: CallbackQuery):
             InlineKeyboardButton('My Dev 👨‍🔬', url='https://t.me/wudixh13/4')
         ], [
             InlineKeyboardButton('Home ⚡', callback_data='start'),
-            InlineKeyboardButton('Close 🔐', callback_data='close')
+            InlineKeyboardButton("🔙 Back", callback_data="settings")
         ]]
     reply_markup = InlineKeyboardMarkup(buttons)
     
@@ -1625,7 +1570,7 @@ async def callback_data(bot, update: CallbackQuery):
             InlineKeyboardButton('My Dev 👨‍🔬', url='https://t.me/wudixh13/4')
         ], [
             InlineKeyboardButton('Home ⚡', callback_data='start'),
-            InlineKeyboardButton('Close 🔐', callback_data='close')
+            InlineKeyboardButton("🔙 Back", callback_data="settings")
         ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
