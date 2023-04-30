@@ -44,7 +44,7 @@ For More Details Click Help Button Below..
 @im_goutham_josh
 """
     
-    ABOUT_TEXT = """<b>➥ Name</b> : <a href=https://t.me/{}>{}</a>
+    ABOUT_TEXT = """<b>➥ Name</b> : <a href=https://t.me/im_kuttu2_bot>Kuttu Bot 2</a>
     
 <b>➥ Creator</b> : <b><i><a href="https://t.me/wudixh13/4">Goutham SER</a></i></b>
 
