@@ -142,7 +142,7 @@ async def cb_navg(bot, update: CallbackQuery):
     
     reply_markup = InlineKeyboardMarkup(temp_results)
     
-    text=f"<i>Found</i> <code>{leng}</code> <i>Results For Your Query:</i> <code>{query}</code>"
+    text=f"<i>Results Available...</i>" #Result tiltle
         
     try:
         await update.message.edit(
@@ -179,42 +179,16 @@ async def cb_settings(bot, update: CallbackQuery):
     text =f"<i>{bot_fname}'s</i> Settings Pannel.....\n"
     text+=f"\n<i>You Can Use This Menu To Change Connectivity And Know Status Of Your Every Connected Channel, Change Filter Types, Configure Filter Results And To Know Status Of Your Group...</i>"
     
-    buttons = [
-        [
-            InlineKeyboardButton
-                (
-                    "Channels", callback_data=f"channel_list({chat_id})"
-                ), 
-            
-            InlineKeyboardButton
-                (
-                    "Filter Types", callback_data=f"types({chat_id})"
-                )
-        ],
-        [
-            InlineKeyboardButton
-                (
-                    "Configure 🛠", callback_data=f"config({chat_id})"
-                )
-        ], 
-        [
-            InlineKeyboardButton
-                (
-                    "Status", callback_data=f"status({chat_id})"
-                ),
-            
-            InlineKeyboardButton
-                (
-                    "About", callback_data=f"about({chat_id})"
-                )
-        ],
-        [
-            InlineKeyboardButton
-                (
-                    "Close 🔐", callback_data="close"
-                )
-        ]
-    ]
+    buttons = [[
+            InlineKeyboardButton("Channels", callback_data=f"channel_list({chat_id})"),
+            InlineKeyboardButton("Filter Types", callback_data=f"types({chat_id})"),
+            InlineKeyboardButton("Configure 🛠", callback_data=f"config({chat_id})")
+    ], [
+            InlineKeyboardButton("Status", callback_data=f"status({chat_id})"),
+            InlineKeyboardButton("About", callback_data=f"about({chat_id})")
+    ], [
+            InlineKeyboardButton("Close 🔐", callback_data="close")
+    ]]
 
     reply_markup = InlineKeyboardMarkup(buttons)
 
@@ -1617,7 +1591,7 @@ async def cb_about(bot, update: CallbackQuery):
             InlineKeyboardButton('My Dev 👨‍🔬', url='https://t.me/wudixh13/4')
         ], [
             InlineKeyboardButton('Home ⚡', callback_data='start'),
-            InlineKeyboardButton('Close 🔐', callback_data='close')
+            InlineKeyboardButton("🔙 Back", callback_data="settings")
         ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -1673,7 +1647,7 @@ async def callback_data(bot, update: CallbackQuery):
     elif query_data == "about": 
         buttons = [[
             InlineKeyboardButton('Home ⚡', callback_data='start'),
-            InlineKeyboardButton('Close 🔐', callback_data='close')
+            InlineKeyboardButton("🔙 Back", callback_data="settings")
         ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
