@@ -414,14 +414,23 @@ async def cb_info(bot, update: CallbackQuery):
                         InlineKeyboardButton("💠 Connect 💠", callback_data=f"warn({channel_id}|{channel_name}|connect)"),
                         InlineKeyboardButton("Delete ❌", callback_data=f"warn({channel_id}|{channel_name}|c_delete)")
 
-    buttons.append([
-                InlineKeyboardButton("Delete Filters ⚠", callback_data=f"warn({channel_id}|{channel_name}|f_delete)")
-    ])
+    buttons.append(
+            [
+                InlineKeyboardButton
+                    (
+                        "Delete Filters ⚠", callback_data=f"warn({channel_id}|{channel_name}|f_delete)"
+                    )
+            ]
+    )
     
-    buttons.append([
+    buttons.append(
+        [
                 InlineKeyboardButton("🔙 Back", callback_data=f"channel_list({chat_id})")
-            ])
+            ]
+    )
 
+            
+            
     reply_markup = InlineKeyboardMarkup(buttons)
         
     await update.message.edit_text(
