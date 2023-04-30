@@ -1396,56 +1396,23 @@ async def cb_accuracy(bot, update: CallbackQuery):
     text+= f"<i>NB: Higher The Value Better Matching Results Will Be Provided... And If Value Is Lower It Will Show More Results \
         Which Is Fimilary To Query Search (Wont Be Accurate)....</i>"
 
-    buttons = [
-        [
-            InlineKeyboardButton
-                (
-                    "100 %", callback_data=f"set(accuracy|1.00|{chat_id}|{val})"
-                )
-        ],
-        [
-            InlineKeyboardButton
-                (
-                    "80 %", callback_data=f"set(accuracy|0.80|{chat_id}|{val})"
-                )
-        ],
-        [
-            InlineKeyboardButton
-                (
-                    "60 %", callback_data=f"set(accuracy|0.60|{chat_id}|{val})"
-                )
-        ],
-        [
-            InlineKeyboardButton
-                (
-                    "50 %", callback_data=f"set(accuracy|0.50|{chat_id}|{val})"
-                )
-        ],
-        [
-            InlineKeyboardButton
-                (
-                    "45 %", callback_data=f"set(accuracy|0.45|{chat_id}|{val})"
-                )
-        ],
-        [
-            InlineKeyboardButton
-                (
-                    "30 %", callback_data=f"set(accuracy|0.30|{chat_id}|{val})"
-                )
-        ],
-        [
-            InlineKeyboardButton
-                (
-                    "20 %", callback_data=f"set(accuracy|0.20|{chat_id}|{val})"
-                )
-        ],
-        [
-            InlineKeyboardButton
-                (
-                    "🔙 Back", callback_data=f"config({chat_id})"
-                )
-        ]
-    ]
+    buttons = [[
+            InlineKeyboardButton("100 %", callback_data=f"set(accuracy|1.00|{chat_id}|{val})")
+    ], [
+            InlineKeyboardButton("80 %", callback_data=f"set(accuracy|0.80|{chat_id}|{val})")
+    ], [
+            InlineKeyboardButton("60 %", callback_data=f"set(accuracy|0.60|{chat_id}|{val})")
+    ], [
+            InlineKeyboardButton("50 %", callback_data=f"set(accuracy|0.50|{chat_id}|{val})")
+        ], [
+            InlineKeyboardButton("45 %", callback_data=f"set(accuracy|0.45|{chat_id}|{val})")
+        ], [
+            InlineKeyboardButton("30 %", callback_data=f"set(accuracy|0.30|{chat_id}|{val})")
+        ], [
+            InlineKeyboardButton("20 %", callback_data=f"set(accuracy|0.20|{chat_id}|{val})")
+      ], [
+            InlineKeyboardButton("🔙 Back", callback_data=f"config({chat_id})")
+        ]]
 
     reply_markup = InlineKeyboardMarkup(buttons)
 
@@ -1525,19 +1492,11 @@ async def cb_set(bot, update: CallbackQuery):
     
     text=f"Your Request Was Updated Sucessfully....\nNow All Upcoming Results Will Show According To This Settings..."
         
-    buttons = [
-        [
-            InlineKeyboardButton
-                (
-                    "Back 🔙", callback_data=f"config({chat_id})"
-                ),
-            
-            InlineKeyboardButton
-                (
-                    "Close 🔐", callback_data="close"
-                )
-        ]
-    ]
+    buttons = [[
+            InlineKeyboardButton("Back 🔙", callback_data=f"config({chat_id})")
+    ], [
+            InlineKeyboardButton("Close 🔐", callback_data="close")
+    ]]
     
     reply_markup=InlineKeyboardMarkup(buttons)
     
@@ -1570,19 +1529,10 @@ async def cb_status(bot, update: CallbackQuery):
     text += f"\n<b>Total Active Chats:</b> <code>{total_achats}</code>\n"
     text += f"\n<b>Total Filters:</b> <code>{total_filters}</code>"
     
-    buttons = [
-        [
-            InlineKeyboardButton
-                (
-                    "🔙 Back", callback_data="settings"
-                ),
-            
-            InlineKeyboardButton
-                (
-                    "Close 🔐", callback_data="close"
-                )
-        ]
-    ]
+    buttons = [[
+        InlineKeyboardButton("🔙 Back", callback_data="settings"),
+        InlineKeyboardButton("Close 🔐", callback_data="close")
+    ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
     
@@ -1610,28 +1560,18 @@ async def cb_about(bot, update: CallbackQuery):
     text+=f"\n<b><i>Bot's Uptime:</i></b> <code>{time_formatter(time.time() - start_uptime)}</code>\n"
     
     text+=f"\n<b><i>Bot Function:</i></b> <i>Auto Filter Files</i>\n"
+    
+    text+=f"\n<b><i>About:</i></b> <i>Power Full</i>\n"
 
-    text=+f"<b>POWERFULL SIMPLE AUTO FILTER BOT</b>"
 
-    buttons = [
-        [
-            InlineKeyboardButton
-                (
-                    "My Dev ⚡", url="https://t.me/wudixh13/4"
-                ),
+    buttons = [[
+            InlineKeyboardButton("My Dev ⚡", url="https://t.me/wudixh13/4")
+    ], [
                 
-            InlineKeyboardButton
-                (
-                    "🔙 Back", callback_data="settings"
-                )
-        ],
-        [
-            InlineKeyboardButton
-                (
-                    "Close 🔐", callback_data="close"
-                )
-        ]
-    ]
+            InlineKeyboardButton("🔙 Back", callback_data="settings")
+    ], [
+            InlineKeyboardButton("Close 🔐", callback_data="close")
+    ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
     
