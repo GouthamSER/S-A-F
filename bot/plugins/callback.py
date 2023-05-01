@@ -1584,12 +1584,13 @@ async def cb_about(bot, update: CallbackQuery):
     text+=f"\n<b><i>Bot's Uptime:</i></b> <code>{time_formatter(time.time() - start_uptime)}</code>\n"
     
     text+=f"\n<b><i>Bot Function:</i></b> <i>Auto Filter Files</i>\n"
+    text+=f"\n<b><i>Bot About:</i></b> <i>Power Full</i>"
 
     buttons = [[
             InlineKeyboardButton('My Dev 👨‍🔬', url='https://t.me/wudixh13/4')
         ], [
             InlineKeyboardButton('Home ⚡', callback_data='start'),
-            InlineKeyboardButton("🔙 Back", callback_data="about")
+            InlineKeyboardButton("🔙 Back", callback_data="settings")
         ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -1599,7 +1600,7 @@ async def cb_about(bot, update: CallbackQuery):
     )
 
 
-
+# pm start
 @Client.on_callback_query(filters.regex(r"^(start|help|about|close)$"), group=2)
 async def callback_data(bot, update: CallbackQuery):
 
@@ -1645,7 +1646,7 @@ async def callback_data(bot, update: CallbackQuery):
     elif query_data == "about": 
         buttons = [[
             InlineKeyboardButton('Home ⚡', callback_data='start'),
-            InlineKeyboardButton("🔙 Back", callback_data="start")
+            InlineKeyboardButton("🔙 Back", callback_data="help")
         ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
