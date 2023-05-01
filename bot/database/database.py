@@ -478,7 +478,7 @@ class Database(metaclass=Singleton):
             file_name = file.get("file_name")
             file_type = file.get("file_type")
             file_caption = file.get("caption")
-            file_size = file.get("size")
+            file_size = file.get("file_size")
         return file_id, file_name, file_caption, file_type, file_size
 
 
