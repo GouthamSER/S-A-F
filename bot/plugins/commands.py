@@ -20,7 +20,7 @@ async def start(bot, update):
             return
         
         caption = file_caption if file_caption != ("" or None) else ("<code>" + file_name + "</code>")
-        size = file_size if file_size != ("" or None) else ("<code>{file_size} </code>")
+        size = file_size if file_size != ("" or None) else ("<code>"{file_size} "</code>")
         
         try:
             await update.reply_cached_media(
