@@ -83,7 +83,7 @@ async def about(bot, update):
             InlineKeyboardButton('My Dev 👨‍🔬', url='https://t.me/wudixh13/4')
         ], [
             InlineKeyboardButton('Home ⚡', callback_data='start'),
-            InlineKeyboardButton('Close 🔐', callback_data='close')
+            InlineKeyboardButton('Back', callback_data='help')
         ]]
     reply_markup = InlineKeyboardMarkup(buttons)
     
