@@ -1585,13 +1585,11 @@ async def cb_about(bot, update: CallbackQuery):
     
     text+=f"\n<b><i>Bot Function:</i></b> <i>Auto Filter Files</i>\n"
 
-    text=+f"<b>POWERFULL SIMPLE AUTO FILTER BOT</b>"
-
     buttons = [[
             InlineKeyboardButton('My Dev 👨‍🔬', url='https://t.me/wudixh13/4')
         ], [
             InlineKeyboardButton('Home ⚡', callback_data='start'),
-            InlineKeyboardButton("🔙 Back", callback_data="settings")
+            InlineKeyboardButton("🔙 Back", callback_data="about")
         ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -1647,7 +1645,7 @@ async def callback_data(bot, update: CallbackQuery):
     elif query_data == "about": 
         buttons = [[
             InlineKeyboardButton('Home ⚡', callback_data='start'),
-            InlineKeyboardButton("🔙 Back", callback_data="settings")
+            InlineKeyboardButton("🔙 Back", callback_data="start")
         ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
