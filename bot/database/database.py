@@ -53,7 +53,7 @@ class Database(metaclass=Singleton):
                 video=True
             ),
             configs = dict(
-                accuracy=0.80,
+                accuracy=0.50,
                 max_pages=5,
                 max_results=50,
                 max_per_page=10,
@@ -471,13 +471,15 @@ class Database(metaclass=Singleton):
         file_type = None
         file_name = None
         file_caption = None
+        file_size = None
         
         if file:
             file_id = file.get("file_id")
             file_name = file.get("file_name")
             file_type = file.get("file_type")
             file_caption = file.get("caption")
-        return file_id, file_name, file_caption, file_type
+            file_size = file.get("size")
+        return file_id, file_name, file_caption, file_type, file_size
 
 
     async def cf_count(self, group_id: int, channel_id: int):
