@@ -27,7 +27,7 @@ async def start(bot, update):
                 file_id,
                 quote=True,
                 caption = caption,
-                size = size
+                size = size,
                 parse_mode=enums.ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup(
                         [[
