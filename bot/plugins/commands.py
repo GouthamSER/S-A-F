@@ -19,7 +19,7 @@ async def start(bot, update):
         if (file_id or file_type) == None:
             return
      #CUSTOM FILE CAPTION   
-        caption = translation = file_caption if file_caption else FILE_NAME #Custom FILE_NAME in traslation
+        caption = file_caption if file_caption != ("" or None) else ("📂 <em>File Name</em>: <code>Kᴜᴛᴛᴜ™[" + file_name + "</code>]")  #FILE NAME LIKE CAPTIONS
         size = file_size if file_size != ("" or None) else ("<code>" + file_size + "</code>")
         
         try:
