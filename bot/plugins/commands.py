@@ -18,8 +18,8 @@ async def start(bot, update):
         
         if (file_id or file_type) == None:
             return
-        
-        caption = file_caption if file_caption != ("" or None) else ("<code>" + file_name + "</code>")
+     #CUSTOM FILE CAPTION   
+        caption = file_caption if file_caption != ("" or None) else ("<i><u>File Name:</u>" + file_name + "</i>")
         size = file_size if file_size != ("" or None) else ("<code>" + file_size + "</code>")
         
         try:
