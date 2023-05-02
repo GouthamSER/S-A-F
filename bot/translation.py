@@ -54,3 +54,8 @@ For More Details Click Help Button Below..
 
 <b>➥ Source Code</b> : <b> SOURCE CODE IS PVT LTD </b>
 """
+
+    FILE_NAME = """📂 <em>File Name</em>: <code>Kᴜᴛᴛᴜ Bot 2|{file_name}</code>
+    """
+    
+    
