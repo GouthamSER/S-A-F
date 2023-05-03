@@ -19,14 +19,15 @@ async def start(bot, update):
         if (file_id or file_type) == None:
             return
      #CUSTOM FILE CAPTION   
-        caption = file_caption if file_caption != ("" or None) else ("📂 <em>File Name</em>: <code>Kᴜᴛᴛᴜ™[" + file_name + "</code>]")  #FILE NAME LIKE CAPTIONS
-        size = file_size if file_size != ("" or None) else ("<code>" + file_size + "</code>")
+        caption = file_caption if file_caption != ("" or None) else ("📂 <em>File Name</em>: <code>Kᴜᴛᴛᴜ™[" + file_name + "</code>]")  #<><><> FILENAME AND SIZE <><><>
+        size = ("File Size : " + file_size )
         
         try:
             await update.reply_cached_media(
                 file_id,
                 quote=True,
                 caption = caption,
+                size = size,
                 parse_mode=enums.ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup(
                         [[
