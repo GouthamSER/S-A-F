@@ -19,8 +19,7 @@ async def start(bot, update):
         if (file_id or file_type) == None:
             return
      #CUSTOM FILE CAPTION   
-        caption = file_caption if file_caption != ("" or None) else ("📂 <em>File Name</em>: <code>Kᴜᴛᴛᴜ™[" + file_name + "</code>]")  #<><><> FILENAME AND SIZE <><><>
-        size = ("File Size : " + file_size )
+        caption = f"""📂 {file_name}  {file_size}"""
         
         try:
             await update.reply_cached_media(
