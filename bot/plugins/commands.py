@@ -14,12 +14,12 @@ async def start(bot, update):
         file_uid = False
     
     if file_uid:
-        file_id, file_name, file_caption, file_size, file_type = await db.get_file(file_uid)
+        file_id, file_name, file_caption, file_type, file_size = await db.get_file(file_uid)
         
         if (file_id or file_type) == None:
             return
      #CUSTOM FILE CAPTION   
-        caption = f"""📂 {file_name}  {file_size}"""
+        caption = f"""📂 {file_name} \n\n {file_size}"""
         
         try:
             await update.reply_cached_media(
