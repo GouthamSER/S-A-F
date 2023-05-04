@@ -19,7 +19,7 @@ async def start(bot, update):
         if (file_id or file_type) == None:
             return
      #CUSTOM FILE CAPTION   
-        caption = f""" 📂 <em>File Name</em>: <code>Kᴜᴛᴛᴜ Bot | file_name </code> \n\n🖇 <em>File Size</em>: <code> file_size </code> \n\n❤️‍🔥 <i>Movie Requests</i> - ||@wudixh|| """
+        caption = f""" 📂 <em>File Name</em>: <code>Kᴜᴛᴛᴜ Bot | {file_name} </code> \n\n🖇 <em>File Size</em>: <code> {file_size} </code> \n\n❤️‍🔥 <i>Movie Requests</i> - ||@wudixh|| """
         
         try:
             await update.reply_cached_media(
