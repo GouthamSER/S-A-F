@@ -496,3 +496,13 @@ class Database(metaclass=Singleton):
         A Funtion to count total filters of a group
         """
         return await self.fcol.count_documents({"group_id": group_id})
+    
+    async def get_db_size(self):
+        return (await self.db.command("dbstats"))['dataSize']
+
+   
+    async def get_file_details(query):
+    filter = {'file_id': query}
+    cursor = Media.find(filter)
+    filedetails = await cursor.to_list(length=1)
+    return filedetails
