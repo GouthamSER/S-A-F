@@ -106,5 +106,4 @@ async def get_ststs(bot, message):
     size = get_size(size)
     free = get_size(free)
     await rju.edit(Translation.STATUS_TEXT.format(files, size, free))
-    )
 
