@@ -56,6 +56,6 @@ For More Details Click Help Button Below..
 """
 
     
-        STATUS_TXT = """★ Total Files: <code>{}</code>
-★ Using Storage: <code>{}</code> MB
-★ Free Storage: <code>{}</code> MB"""
+        STATUS_TXT = """★ Total Files: {}
+★ Using Storage: {} MB
+★ Free Storage: {} MB"""
