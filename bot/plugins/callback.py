@@ -1668,7 +1668,7 @@ async def callback_data(bot, update: CallbackQuery):
         monsize = get_size(monsize)
         free = get_size(free)
         await query.message.edit_text(
-            text=Translation.STATUS_TXT.format(total, monsize, free),
+            text=Translation.STATUS_TEXT.format(total, monsize, free),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
