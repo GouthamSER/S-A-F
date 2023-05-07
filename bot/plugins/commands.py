@@ -96,3 +96,22 @@ async def about(bot, update):
         parse_mode=enums.ParseMode.HTML,
         reply_to_message_id=update.id
     )
+    
+    @Client.on_message(filters.command(["stats"]) & filters.private, group=1)
+    async def stats(bot, update):
+        
+        buttons = [[
+            InlineKeyboardButton('👩‍🦯 Back', callback_data='help')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        total = await Media.count_documents()
+        monsize = await db.get_db_size()
+        free = 536870912 - monsize
+        monsize = get_size(monsize)
+        free = get_size(free)
+        await query.message.edit_text(
+            text=script.STATUS_TXT.format(total, monsize, free),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+
+     )
