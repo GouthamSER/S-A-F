@@ -61,7 +61,8 @@ async def start(bot, update):
 async def help(bot, update):
     buttons = [[
             InlineKeyboardButton('Home ⚡', callback_data='start'),
-            InlineKeyboardButton('About 🚩', callback_data='about')
+            InlineKeyboardButton('About 🚩', callback_data='about'),
+            InlineKeyboardButton("Status👀", callback_data='stats')
         ],[
             InlineKeyboardButton('Close 🔐', callback_data='close')
         ]]
@@ -97,21 +98,14 @@ async def about(bot, update):
         reply_to_message_id=update.id
     )
     
-    @Client.on_message(filters.command(["stats"]) & filters.private, group=1)
-    async def stats(bot, update):
         
-        buttons = [[
-            InlineKeyboardButton('👩‍🦯 Back', callback_data='help')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        total = await Media.count_documents()
-        monsize = await db.get_db_size()
-        free = 536870912 - monsize
-        monsize = get_size(monsize)
-        free = get_size(free)
-        await query.message.edit_text(
-            text=Translation.STATUS_TEXT.format(total, monsize, free),
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-
-     )
+@Client.on_message(filters.command('stats') & filters.incoming)
+async def get_ststs(bot, message):
+    rju = await message.reply('Fetching stats..')
+    files = await Media.count_documents()
+    size = await db.get_db_size()
+    free = 536870912 - size
+    size = get_size(size)
+    free = get_size(free)
+    await rju.edit(Translation.STATUS_TEXT.format(files, size, free))
+    )
