@@ -61,7 +61,8 @@ async def start(bot, update):
 async def help(bot, update):
     buttons = [[
             InlineKeyboardButton('Home ⚡', callback_data='start'),
-            InlineKeyboardButton('About 🚩', callback_data='about')
+            InlineKeyboardButton('About 🚩', callback_data='about'),
+            InlineKeyboardButton('MongoDb', callback_data='stats')
         ],[
             InlineKeyboardButton('Close 🔐', callback_data='close')
         ]]
