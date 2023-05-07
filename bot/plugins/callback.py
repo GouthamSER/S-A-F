@@ -1629,7 +1629,8 @@ async def callback_data(bot, update: CallbackQuery):
     elif query_data == "help":
         buttons = [[
             InlineKeyboardButton('Home ⚡', callback_data='start'),
-            InlineKeyboardButton('About 🚩', callback_data='about')
+            InlineKeyboardButton('About 🚩', callback_data='about'),
+            InlineKeyboardButton('MongoDb', callback_data='stats')
         ],[
             InlineKeyboardButton('Close 🔐', callback_data='close')
         ]]
@@ -1658,6 +1659,22 @@ async def callback_data(bot, update: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
 
+    elif query.data == "stats":
+        buttons = [[
+            InlineKeyboardButton('👩‍🦯 Back', callback_data='help')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        total = await Media.count_documents()
+        monsize = await db.get_db_size()
+        free = 536870912 - monsize
+        monsize = get_size(monsize)
+        free = get_size(free)
+        await update.message.edit_text(
+            Translation.ABOUT_TEXT.format(total, monsize, free),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+    
     elif query_data == "close":
         await update.message.delete()
 
