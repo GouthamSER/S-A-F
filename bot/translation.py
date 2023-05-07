@@ -55,7 +55,6 @@ For More Details Click Help Button Below..
 <b>➥ Source Code</b> : <b> SOURCE CODE IS PVT LTD </b>
 """
 
-    
-        STATUS_TEXT = """★ Total Files: {}
+    STATUS_TEXT = """★ Total Files: {}
 ★ Using Storage: {} MB
 ★ Free Storage: {} MB"""
