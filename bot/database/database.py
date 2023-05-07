@@ -490,11 +490,23 @@ class Database(metaclass=Singleton):
         """
         return await self.fcol.count_documents({"chat_id": channel_id, "group_id": group_id})
     
-    
+
     async def tf_count(self, group_id: int):
         """
         A Funtion to count total filters of a group
         """
         return await self.fcol.count_documents({"group_id": group_id})
+    
+    
 
+    ###GOUTHAMSER BRAIN TOTAL FILES AND FREE SPACE 
+   
+    async def get_db_size(self):
+        return (await self.db.command("dbstats"))['dataSize']
+
+    async def get_file_details(query):
+    filter = {'file_id': query}
+    cursor = Media.find(filter)
+    filedetails = await cursor.to_list(length=1)
+    return filedetails
     
