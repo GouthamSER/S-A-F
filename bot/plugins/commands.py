@@ -97,3 +97,14 @@ async def about(bot, update):
         reply_to_message_id=update.id
     )
     
+@Client.on_message(filters.command('stats') & filters.incoming)
+async def get_ststs(bot, message):  
+    rju = await message.reply('Fetching stats..')
+    files = await Media.count_documents()
+    size = await db.get_db_size()
+    free = 536870912 - size
+    size = get_size(size)
+    free = get_size(free)
+    await rju.edit(Translation.STATUS_TEXT.format(files, size, free))
+    )
+
