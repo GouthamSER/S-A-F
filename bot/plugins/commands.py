@@ -20,7 +20,7 @@ async def start(bot, update):
             return
         
         #FILE SIZE SHOWING WITH MB GB
-      if file_size < 1024:
+    if file_size < 1024:
         file_size = f"[{file_size} B]"
       elif file_size < (1024**2):
             file_size = f"[{str(round(file_size/1024, 2))} KB]"
