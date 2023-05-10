@@ -1291,7 +1291,7 @@ async def cb_show_invites(bot, update: CallbackQuery):
 @Client.on_callback_query(filters.regex(r"inPM\((.+)\)"), group=2)
 async def cb_pm_file(bot, update: CallbackQuery):
     """
-    A Callback Funtion For Enabling Or Diabling File Transfer Through Bot PM
+    A Callback Funtion For Enabling Or Disabling File Transfer Through Bot PM
     """
     global VERIFY
     query_data = update.data
@@ -1628,7 +1628,7 @@ async def callback_data(bot, update: CallbackQuery):
     elif query_data == "help":
         buttons = [[
             InlineKeyboardButton('🏡ʜᴏᴍᴇ', callback_data='start'),
-            InlineKeyboardButton('About 🚩', callback_data='about'),
+            InlineKeyboardButton('Aʙᴏᴜᴛ🖥', callback_data='about'),
         ],[
             InlineKeyboardButton('🔐ᴄʟᴏsᴇ', callback_data='close')
         ]]
