@@ -18,12 +18,16 @@ async def start(bot, update):
         
         if (file_id or file_type) == None:
             return
-        
-        #FILE SIZE SHOWING WITH MB GB
-    
-     
-    
-    #CUSTOM FILE CAPTION   
+  #FILE SIZE COMPRESSING>>>>>      
+        if file_size < 1024:
+            file_size = f"[{file_size} B]"
+        elif file_size < (1024**2):
+            file_size = f"[{str(round(file_size/1024, 2))} KB]"
+        elif file_size < (1024**3):
+            file_size = f"[{str(round(file_size/(1024**2), 2))} MB]"
+        elif file_size < (1024**4):
+            file_size = f"[{str(round(file_size/(1024**3), 2))} GB]"
+#CUSTOM FILE CAPTION       
         caption = f""" 📂 <em>File Name</em>: <code>Kᴜᴛᴛᴜ Bot | {file_name} </code> \n\n🖇 <em>File Size</em>: <code> {file_size} </code>"""
         
         try:
@@ -34,12 +38,12 @@ async def start(bot, update):
                 parse_mode=enums.ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup(
                         [[
-                            InlineKeyboardButton('💕Movie Group❤', url="https://t.me/wudixh")
+                            InlineKeyboardButton('💕Movie Group❤️', url="https://t.me/wudixh")
                         ]]
                 ))
         except Exception as e:
             await update.reply_text(f"<b>Error:</b>\n<code>{e}</code>", True, parse_mode=enums.ParseMode.HTML)
-            LOGGER(__name__).error(e)
+            LOGGER(name).error(e)
         return
 #pmstart
     buttons = [[
