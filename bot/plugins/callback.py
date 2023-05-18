@@ -1617,9 +1617,8 @@ async def callback_data(bot, update: CallbackQuery):
     
         reply_markup = InlineKeyboardMarkup(buttons)
         
-        await update.message.reply_photo(
-            photo="https://telegra.ph/file/4b91500e1254a6e1b203e.jpg",
-            caption=Translation.START_TEXT.format(update.from_user.mention),
+        await update.message.edit_text(
+            Translation.START_TEXT.format(update.from_user.mention),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
