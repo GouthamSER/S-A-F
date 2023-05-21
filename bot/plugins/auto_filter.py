@@ -211,7 +211,7 @@ Hᴇʀᴇ Is Wʜᴀᴛ I Fᴏᴜɴᴅ Fᴏʀ Yᴏᴜʀ Sᴇaʀᴄʜ
 ʀᴇQᴜᴇꜱᴛᴇᴅ ʙʏ : {bot.from_user.mention}
 ᴜᴘʟᴏᴀᴅᴇᴅ ʙʏ  : [Eʟ Dᴏʀᴀᴅᴏ](https://t.me/wudixh)
 
-Wᴀᴛᴄʜ Aɴᴅ Eɴᴊᴏʏ 😍"""  
+Wᴀᴛᴄʜ Aɴᴅ Eɴᴊᴏʏ 😍""",
                 
                 reply_markup=reply_markup,
                 parse_mode=enums.ParseMode.HTML,
