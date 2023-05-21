@@ -2,11 +2,36 @@ from pyrogram import filters, Client, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from bot import Translation, LOGGER # pylint: disable=import-error
 from bot.database import Database # pylint: disable=import-error
+import random
 
 db = Database()
 
+force_channel = "wudixh13"
+
+PICS = [
+"https://telegra.ph/file/7a264da82c92e56430feb.jpg",
+"https://telegra.ph/file/23f226130bfdc3ef0baad.jpg",
+"https://telegra.ph/file/4b91500e1254a6e1b203e.jpg"
+]
+
 @Client.on_message(filters.command(["start"]) & filters.private, group=1)
 async def start(bot, update):
+    
+    if force_channel:
+        try:
+            user = await bot.get_chat_member(force_channel, update.from_user.id)
+            if user.status == "kicked out":
+                await update.reply_text("You Are Banned")
+                return
+        except UserNotParticipant :
+            await update.reply_text(
+                text="🔊 𝗝𝗼𝗶𝗻 𝗢𝘂𝗿 𝗠𝗮𝗶𝗻 𝗰𝗵𝗮𝗻𝗻𝗲𝗹 🤭.\n\nനിങ്ങൾക്ക് മൂവീസ് വേണോ? എങ്കിൽ തായെ കാണുന്ന ഞങ്ങളുടെ മെയിൻ ചാനലിൽ ജോയിൻ ചെയ്യുക.😂\nഎന്നിട്ട് ഗ്രൂപ്പിൽ പോയി വീണ്ടും മൂവിയിൽ ക്ലിക് ചെയ്ത് start കൊടുത്തു നോക്കൂ..!😁",
+                reply_markup=InlineKeyboardMarkup( [[
+                 InlineKeyboardButton("🔊 𝗝𝗼𝗶𝗻 𝗢𝘂𝗿 𝗠𝗮𝗶𝗻 𝗰𝗵𝗮𝗻𝗻𝗲𝗹 🤭", url=f"t.me/{force_channel}")
+                 ]]
+                 )
+            )
+            return
     
     try:
         file_uid = update.command[1]
@@ -55,15 +80,9 @@ async def start(bot, update):
            ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
-   
-# STICKER ADDING Pm
-    m=await update.reply_sticker("CAACAgUAAxkBAAIuc2OxMvp4oKa3eqg6zBTCZZdtxFV3AAIvAAPhAAEBGxa4Kik7WjyMHgQ")
-    await asyncio.sleep(1)
-    await m.delete()
-    
-    await bot.send_message(
-        chat_id=update.chat.id,
-        text=Translation.START_TEXT.format(update.from_user.first_name),
+    await bot.reply_photo(
+        photo=random.choice(PICS),
+        caption=Translation.HELP_TEXT.format(update.from_user.first_name),
         reply_markup=reply_markup,
         parse_mode=enums.ParseMode.HTML,
         reply_to_message_id=update.id
@@ -81,9 +100,9 @@ async def help(bot, update):
     
     reply_markup = InlineKeyboardMarkup(buttons)
     
-    await bot.send_message(
-        chat_id=update.chat.id,
-        text=Translation.HELP_TEXT,
+    await bot.reply_photo(
+        photo=random.choice(PICS),
+        caption=Translation.HELP_TEXT,
         reply_markup=reply_markup,
         parse_mode=enums.ParseMode.HTML,
         reply_to_message_id=update.id
@@ -101,11 +120,10 @@ async def about(bot, update):
         ]]
     reply_markup = InlineKeyboardMarkup(buttons)
     
-    await bot.send_message(
-        chat_id=update.chat.id,
-        text=Translation.ABOUT_TEXT,
+    await bot.reply_photo(
+        photo=random.choice(PICS),
+        caption=Translation.ABOUT_TEXT,
         reply_markup=reply_markup,
-        disable_web_page_preview=True,
         parse_mode=enums.ParseMode.HTML,
         reply_to_message_id=update.id
     )
