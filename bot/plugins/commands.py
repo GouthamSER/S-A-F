@@ -81,7 +81,7 @@ async def start(bot, update):
            ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
-    await bot.reply_photo(
+    await update.reply_photo(
         photo=random.choice(PICS),
         caption=Translation.HELP_TEXT.format(update.from_user.first_name),
         reply_markup=reply_markup,
@@ -101,7 +101,7 @@ async def help(bot, update):
     
     reply_markup = InlineKeyboardMarkup(buttons)
     
-    await bot.reply_photo(
+    await update.reply_photo(
         photo=random.choice(PICS),
         caption=Translation.HELP_TEXT,
         reply_markup=reply_markup,
@@ -121,7 +121,7 @@ async def about(bot, update):
         ]]
     reply_markup = InlineKeyboardMarkup(buttons)
     
-    await bot.reply_photo(
+    await update.reply_photo(
         photo=random.choice(PICS),
         caption=Translation.ABOUT_TEXT,
         reply_markup=reply_markup,
