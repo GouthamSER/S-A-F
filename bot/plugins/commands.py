@@ -1,5 +1,6 @@
 from pyrogram import filters, Client, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
+from pyrogram.errors import UserNotParticipant
 from bot import Translation, LOGGER # pylint: disable=import-error
 from bot.database import Database # pylint: disable=import-error
 import random
