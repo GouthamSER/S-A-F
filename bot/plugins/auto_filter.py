@@ -208,7 +208,7 @@ async def auto_filter(bot, update):
 Hᴇʀᴇ Is Wʜᴀᴛ I Fᴏᴜɴᴅ Fᴏʀ Yᴏᴜʀ Sᴇaʀᴄʜ
 
 ᴛɪᴛʟᴇ        : <code>{query}</code>
-ʀᴇQᴜᴇꜱᴛᴇᴅ ʙʏ : {bot.from_user.mention}
+ʀᴇQᴜᴇꜱᴛᴇᴅ ʙʏ : {update.from_user.mention}
 ᴜᴘʟᴏᴀᴅᴇᴅ ʙʏ  : [Eʟ Dᴏʀᴀᴅᴏ](https://t.me/wudixh)
 
 Wᴀᴛᴄʜ Aɴᴅ Eɴᴊᴏʏ 😍""",
