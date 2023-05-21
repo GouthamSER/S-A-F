@@ -57,7 +57,7 @@ async def start(bot, update):
     reply_markup = InlineKeyboardMarkup(buttons)
    
 # STICKER ADDING Pm
-    m=await message.reply_sticker("CAACAgUAAxkBAAIuc2OxMvp4oKa3eqg6zBTCZZdtxFV3AAIvAAPhAAEBGxa4Kik7WjyMHgQ")
+    m=await update.reply_sticker("CAACAgUAAxkBAAIuc2OxMvp4oKa3eqg6zBTCZZdtxFV3AAIvAAPhAAEBGxa4Kik7WjyMHgQ")
     await asyncio.sleep(1)
     await m.delete()
     
