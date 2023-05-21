@@ -3,17 +3,12 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQ
 from pyrogram.errors import UserNotParticipant
 from bot import Translation, LOGGER # pylint: disable=import-error
 from bot.database import Database # pylint: disable=import-error
-import random
+
 
 db = Database()
 
 force_channel = "wudixh13"
 
-PICS = [
-"https://telegra.ph/file/7a264da82c92e56430feb.jpg",
-"https://telegra.ph/file/23f226130bfdc3ef0baad.jpg",
-"https://telegra.ph/file/4b91500e1254a6e1b203e.jpg"
-]
 
 @Client.on_message(filters.command(["start"]) & filters.private, group=1)
 async def start(bot, update):
@@ -82,7 +77,7 @@ async def start(bot, update):
     
     reply_markup = InlineKeyboardMarkup(buttons)
     await update.reply_photo(
-        photo=random.choice(PICS),
+        photo="https://telegra.ph/file/4b91500e1254a6e1b203e.jpg",
         caption=Translation.HELP_TEXT.format(update.from_user.first_name),
         reply_markup=reply_markup,
         parse_mode=enums.ParseMode.HTML,
@@ -102,7 +97,7 @@ async def help(bot, update):
     reply_markup = InlineKeyboardMarkup(buttons)
     
     await update.reply_photo(
-        photo=random.choice(PICS),
+        photo="https://telegra.ph/file/4b91500e1254a6e1b203e.jpg",
         caption=Translation.HELP_TEXT,
         reply_markup=reply_markup,
         parse_mode=enums.ParseMode.HTML,
@@ -122,7 +117,7 @@ async def about(bot, update):
     reply_markup = InlineKeyboardMarkup(buttons)
     
     await update.reply_photo(
-        photo=random.choice(PICS),
+        photo="https://telegra.ph/file/4b91500e1254a6e1b203e.jpg",
         caption=Translation.ABOUT_TEXT,
         reply_markup=reply_markup,
         parse_mode=enums.ParseMode.HTML,
