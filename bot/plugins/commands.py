@@ -76,9 +76,8 @@ async def start(bot, update):
            ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
-    await update.reply_photo(
-        photo="https://telegra.ph/file/4b91500e1254a6e1b203e.jpg",
-        caption=Translation.HELP_TEXT.format(update.from_user.first_name),
+    await update.reply_text(
+        text=Translation.HELP_TEXT.format(update.from_user.first_name),
         reply_markup=reply_markup,
         parse_mode=enums.ParseMode.HTML,
         reply_to_message_id=update.id
@@ -96,9 +95,8 @@ async def help(bot, update):
     
     reply_markup = InlineKeyboardMarkup(buttons)
     
-    await update.reply_photo(
-        photo="https://telegra.ph/file/4b91500e1254a6e1b203e.jpg",
-        caption=Translation.HELP_TEXT,
+    await update.reply_text(
+        text=Translation.HELP_TEXT,
         reply_markup=reply_markup,
         parse_mode=enums.ParseMode.HTML,
         reply_to_message_id=update.id
@@ -116,9 +114,8 @@ async def about(bot, update):
         ]]
     reply_markup = InlineKeyboardMarkup(buttons)
     
-    await update.reply_photo(
-        photo="https://telegra.ph/file/4b91500e1254a6e1b203e.jpg",
-        caption=Translation.ABOUT_TEXT,
+    await update.reply_text(
+        text=Translation.ABOUT_TEXT,
         reply_markup=reply_markup,
         parse_mode=enums.ParseMode.HTML,
         reply_to_message_id=update.id
