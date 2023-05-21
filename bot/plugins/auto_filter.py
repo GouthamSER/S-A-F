@@ -202,9 +202,17 @@ async def auto_filter(bot, update):
         reply_markup = InlineKeyboardMarkup(result[0])
 
         try:
-            await bot.send_message(
+            await update.reply_text(
                 chat_id = update.chat.id,
-                text=f"<u>Results Availbale....</u>",  #FOUND RESULT
+                text=f"""Hᴇʏ {update.from_user.mention} 🙌
+Hᴇʀᴇ Is Wʜᴀᴛ I Fᴏᴜɴᴅ Fᴏʀ Yᴏᴜʀ Sᴇaʀᴄʜ
+
+ᴛɪᴛʟᴇ        : <code>{query}</code>
+ʀᴇQᴜᴇꜱᴛᴇᴅ ʙʏ : {bot.from_user.mention}
+ᴜᴘʟᴏᴀᴅᴇᴅ ʙʏ  : [Eʟ Dᴏʀᴀᴅᴏ](https://t.me/wudixh)
+
+Wᴀᴛᴄʜ Aɴᴅ Eɴᴊᴏʏ 😍"""  
+                
                 reply_markup=reply_markup,
                 parse_mode=enums.ParseMode.HTML,
                 reply_to_message_id=update.id
