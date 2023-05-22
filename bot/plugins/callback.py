@@ -1631,7 +1631,7 @@ async def callback_data(bot, update: CallbackQuery):
             InlineKeyboardButton("Settings⚙️", callback_data="set")
         ],[
             InlineKeyboardButton('🏡Hᴏᴍᴇ', callback_data='start'),
-            InlineKeyboardButton('Aʙᴏᴜᴛ🖥', callback_data='about'),
+            InlineKeyboardButton('Aʙᴏᴜᴛ🖥', callback_data='about')
         ],[
             InlineKeyboardButton('🔐Cʟᴏsᴇ', callback_data='close')
         ]]
