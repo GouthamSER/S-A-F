@@ -123,3 +123,50 @@ async def about(bot, update):
         parse_mode=enums.ParseMode.HTML,
         reply_to_message_id=update.id
     )
+    
+    
+@Client.on_message(filters.command(["con"]) & filters.private, group=1)
+async def about(bot, update):
+    
+    buttons = [[
+            InlineKeyboardButton('Bᴀᴄᴋ👈', callback_data='help')
+        ]]
+    reply_markup = InlineKeyboardMarkup(buttons)
+    
+    await update.reply_text(
+        text=Translation.CON_TXT,
+        reply_markup=reply_markup,
+        parse_mode=enums.ParseMode.HTML,
+        reply_to_message_id=update.id
+    )
+    
+
+@Client.on_message(filters.command(["del"]) & filters.private, group=1)
+async def about(bot, update):
+    
+    buttons = [[
+            InlineKeyboardButton('Bᴀᴄᴋ👈', callback_data='help')
+        ]]
+    reply_markup = InlineKeyboardMarkup(buttons)
+    
+    await update.reply_text(
+        text=Translation.DEL_TXT,
+        reply_markup=reply_markup,
+        parse_mode=enums.ParseMode.HTML,
+        reply_to_message_id=update.id
+    )
+    
+@Client.on_message(filters.command(["set"]) & filters.private, group=1)
+async def about(bot, update):
+    
+    buttons = [[
+            InlineKeyboardButton('Bᴀᴄᴋ👈', callback_data='help')
+        ]]
+    reply_markup = InlineKeyboardMarkup(buttons)
+    
+    await update.reply_text(
+        text=Translation.SET_TXT,
+        reply_markup=reply_markup,
+        parse_mode=enums.ParseMode.HTML,
+        reply_to_message_id=update.id
+    )
