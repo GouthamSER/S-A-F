@@ -3,17 +3,11 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQ
 from pyrogram.errors import UserNotParticipant
 from bot import Translation, LOGGER # pylint: disable=import-error
 from bot.database import Database # pylint: disable=import-error
-import random
 
 
 db = Database()
 
 F_SUB = "wudixh"
-PICS = [
- "https://telegra.ph/file/4b91500e1254a6e1b203e.jpg",
- "https://telegra.ph/file/aab55effd94968cd28b32.jpg",
- "https://telegra.ph/file/46c63b2a7364ab93f668f.jpg"
-]
 
 @Client.on_message(filters.command(["start"]) & filters.private, group=1)
 async def start(bot, update):
@@ -26,7 +20,7 @@ async def start(bot, update):
                 return
         except UserNotParticipant :
             await update.reply_text(
-                text="🔊 𝗝𝗼𝗶𝗻 𝗢𝘂𝗿 𝗠𝗮𝗶𝗻 𝗰𝗵𝗮𝗻𝗻𝗲𝗹 🤭.\n\nനിങ്ങൾക്ക് മൂവീസ് വേണോ? എങ്കിൽ തായെ കാണുന്ന ഞങ്ങളുടെ മെയിൻ ചാനലിൽ ജോയിൻ ചെയ്യുക.😂\nഎന്നിട്ട് ഗ്രൂപ്പിൽ പോയി വീണ്ടും മൂവിയിൽ ക്ലിക് ചെയ്ത് start കൊടുത്തു നോക്കൂ..!😁",
+                text="🔊 𝗝𝗼𝗶𝗻 𝗢𝘂𝗿 𝗠𝗮𝗶𝗻 𝗰𝗵𝗮𝗻𝗻𝗲𝗹 🤭.\n\nDᴏ Yᴏᴜ Wᴀɴᴛ Mᴏᴠɪᴇs? Tʜᴇɴ Jᴏɪɴ Oᴜʀ Mᴀɪɴ Cʜᴀɴɴᴇʟ Aɴᴅ Wᴀᴛᴄʜ ɪᴛ.😂\n Tʜᴇɴ ɢᴏ ᴛᴏ ᴛʜᴇ ɢʀᴏᴜᴘ ᴀɴᴅ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ᴍᴏᴠɪᴇ ᴀɢᴀɪɴ ᴀɴᴅ ɢɪᴠᴇ ɪᴛ ᴀ sᴛᴀʀᴛ...!😁",
                 reply_markup=InlineKeyboardMarkup( [[
                  InlineKeyboardButton("🔊 𝗝𝗼𝗶𝗻 𝗢𝘂𝗿 𝗠𝗮𝗶𝗻 𝗰𝗵𝗮𝗻𝗻𝗲𝗹 🤭", url=f"t.me/{F_SUB}")
                  ]]
@@ -81,9 +75,8 @@ async def start(bot, update):
            ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
-    await update.reply_photo(
-        photo=random.choice(PICS),
-        caption=Translation.START_TEXT.format(update.from_user.first_name),
+    await update.reply_text(
+        text=Translation.START_TEXT.format(update.from_user.first_name),
         reply_markup=reply_markup,
         parse_mode=enums.ParseMode.HTML,
         reply_to_message_id=update.id
@@ -93,17 +86,16 @@ async def start(bot, update):
 @Client.on_message(filters.command(["help"]) & filters.private, group=1)
 async def help(bot, update):
     buttons = [[
-            InlineKeyboardButton('🏡ʜᴏᴍᴇ', callback_data='start'),
+            InlineKeyboardButton('🏡Hᴏᴍᴇ', callback_data='start'),
             InlineKeyboardButton('Aʙᴏᴜᴛ🖥', callback_data='about')
         ],[
-            InlineKeyboardButton('🔐ᴄʟᴏsᴇ', callback_data='close')
+            InlineKeyboardButton('🔐Cʟᴏsᴇ', callback_data='close')
         ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
     
-    await update.reply_photo(
-        photo=random.choice(PICS),
-        caption=Translation.HELP_TEXT,
+    await update.reply_text(
+        text=Translation.HELP_TEXT,
         reply_markup=reply_markup,
         parse_mode=enums.ParseMode.HTML,
         reply_to_message_id=update.id
@@ -116,14 +108,13 @@ async def about(bot, update):
     buttons = [[
             InlineKeyboardButton('Oᴡɴᴇʀ👤', url='https://t.me/wudixh13/4')
         ], [
-            InlineKeyboardButton('🏡ʜᴏᴍᴇ', callback_data='start'),
-            InlineKeyboardButton('ʙᴀᴄᴋ👈', callback_data='help')
+            InlineKeyboardButton('🏡Hᴏᴍᴇ', callback_data='start'),
+            InlineKeyboardButton('Bᴀᴄᴋ👈', callback_data='help')
         ]]
     reply_markup = InlineKeyboardMarkup(buttons)
     
-    await update.reply_photo(
-        photo=random.choice(PICS),
-        caption=Translation.ABOUT_TEXT,
+    await update.reply_text(
+        text=Translation.ABOUT_TEXT,
         reply_markup=reply_markup,
         parse_mode=enums.ParseMode.HTML,
         reply_to_message_id=update.id
