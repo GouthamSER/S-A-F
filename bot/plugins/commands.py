@@ -86,9 +86,9 @@ async def start(bot, update):
 @Client.on_message(filters.command(["help"]) & filters.private, group=1)
 async def help(bot, update):
     buttons = [[
-            InlineKeyboardButton("Connect🎛", callback_data="con"),
-            InlineKeyboardButton("Delete♻", callback_data="del"),
-            InlineKeyboardButton("Settings⚙️", callback_data="set")
+            InlineKeyboardButton("Connect🎛", callback_data='connection'),
+            InlineKeyboardButton("Delete♻", callback_data='delete'),
+            InlineKeyboardButton("Settings⚙️", callback_data='set')
         ],[
             InlineKeyboardButton('🏡Hᴏᴍᴇ', callback_data='start'),
             InlineKeyboardButton('Aʙᴏᴜᴛ🖥', callback_data='about')
@@ -119,53 +119,6 @@ async def about(bot, update):
     
     await update.reply_text(
         text=Translation.ABOUT_TEXT,
-        reply_markup=reply_markup,
-        parse_mode=enums.ParseMode.HTML,
-        reply_to_message_id=update.id
-    )
-    
-    
-@Client.on_message(filters.command(["con"]) & filters.private, group=1)
-async def about(bot, update):
-    
-    buttons = [[
-            InlineKeyboardButton('Bᴀᴄᴋ👈', callback_data='help')
-        ]]
-    reply_markup = InlineKeyboardMarkup(buttons)
-    
-    await update.reply_text(
-        text=Translation.CON_TXT,
-        reply_markup=reply_markup,
-        parse_mode=enums.ParseMode.HTML,
-        reply_to_message_id=update.id
-    )
-    
-
-@Client.on_message(filters.command(["del"]) & filters.private, group=1)
-async def about(bot, update):
-    
-    buttons = [[
-            InlineKeyboardButton('Bᴀᴄᴋ👈', callback_data='help')
-        ]]
-    reply_markup = InlineKeyboardMarkup(buttons)
-    
-    await update.reply_text(
-        text=Translation.DEL_TXT,
-        reply_markup=reply_markup,
-        parse_mode=enums.ParseMode.HTML,
-        reply_to_message_id=update.id
-    )
-    
-@Client.on_message(filters.command(["set"]) & filters.private, group=1)
-async def about(bot, update):
-    
-    buttons = [[
-            InlineKeyboardButton('Bᴀᴄᴋ👈', callback_data='help')
-        ]]
-    reply_markup = InlineKeyboardMarkup(buttons)
-    
-    await update.reply_text(
-        text=Translation.SET_TXT,
         reply_markup=reply_markup,
         parse_mode=enums.ParseMode.HTML,
         reply_to_message_id=update.id
