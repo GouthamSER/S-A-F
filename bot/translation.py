@@ -17,10 +17,9 @@ Fᴏʀ Mᴏʀᴇ Dᴇᴛᴀɪʟs Cʟɪᴄᴋ Hᴇʟᴘ Bᴜᴛᴛᴏɴ Bᴇʟᴏ
 -> Add Me To Any Group And Make Me Admin
 -> Add Me To Your Desired Channel
 </i>
-
 <b>Bot Commands (Works Only In Groups) :</b>
 
--> Click Connect Option
+-> Click Below Buttons to know more✔
 """
    
     CON_TXT = """
