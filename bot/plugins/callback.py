@@ -1626,10 +1626,14 @@ async def callback_data(bot, update: CallbackQuery):
 
     elif query_data == "help":
         buttons = [[
-            InlineKeyboardButton('🏡ʜᴏᴍᴇ', callback_data='start'),
+            InlineKeyboardButton("Connect🎛", callback_data="con"),
+            InlineKeyboardButton("Delete♻", callback_data="del"),
+            InlineKeyboardButton("Settings⚙️", callback_data="set")
+        ],[
+            InlineKeyboardButton('🏡Hᴏᴍᴇ', callback_data='start'),
             InlineKeyboardButton('Aʙᴏᴜᴛ🖥', callback_data='about'),
         ],[
-            InlineKeyboardButton('🔐ᴄʟᴏsᴇ', callback_data='close')
+            InlineKeyboardButton('🔐Cʟᴏsᴇ', callback_data='close')
         ]]
     
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -1640,6 +1644,44 @@ async def callback_data(bot, update: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
 
+    elif query_data == "con":
+        buttons = [[
+            InlineKeyboardButton("🔙ʙᴀᴄᴋ", callback_data="help")
+        ]]
+        
+        reply_markup = InlineKeyboardMarkup(buttons)
+        
+        await update.message.edit_text(
+            Translation.CON_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+        
+    elif query_data == "del":
+        buttons = [[
+            InlineKeyboardButton("🔙ʙᴀᴄᴋ", callback_data="help")
+        ]]
+        
+        reply_markup = InlineKeyboardMarkup(buttons)
+        
+        await update.message.edit_text(
+            Translation.DEL_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+        
+    elif query_data == "set":
+        buttons = [[
+            InlineKeyboardButton("🔙ʙᴀᴄᴋ", callback_data="help")
+        ]]
+        
+        reply_markup = InlineKeyboardMarkup(buttons)
+        
+        await update.message.edit_text(
+            Translation.SET_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
 
     elif query_data == "about": 
         buttons = [[
