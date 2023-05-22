@@ -1626,9 +1626,9 @@ async def callback_data(bot, update: CallbackQuery):
 
     elif query_data == "help":
         buttons = [[
-            InlineKeyboardButton("Connect🎛", callback_data="con"),
-            InlineKeyboardButton("Delete♻", callback_data="del"),
-            InlineKeyboardButton("Settings⚙️", callback_data="set")
+            InlineKeyboardButton("Connect🎛", callback_data='connection'),
+            InlineKeyboardButton("Delete♻", callback_data='delete'),
+            InlineKeyboardButton("Settings⚙️", callback_data='set')
         ],[
             InlineKeyboardButton('🏡Hᴏᴍᴇ', callback_data='start'),
             InlineKeyboardButton('Aʙᴏᴜᴛ🖥', callback_data='about')
@@ -1644,7 +1644,7 @@ async def callback_data(bot, update: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
 
-    elif query_data == "con":
+    elif query_data == "connection":
         buttons = [[
             InlineKeyboardButton("🔙ʙᴀᴄᴋ", callback_data="help")
         ]]
@@ -1657,7 +1657,7 @@ async def callback_data(bot, update: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
         
-    elif query_data == "del":
+    elif query_data == "delete":
         buttons = [[
             InlineKeyboardButton("🔙ʙᴀᴄᴋ", callback_data="help")
         ]]
@@ -1685,8 +1685,8 @@ async def callback_data(bot, update: CallbackQuery):
 
     elif query_data == "about": 
         buttons = [[
-            InlineKeyboardButton('🏡ʜᴏᴍᴇ', callback_data='start'),
-            InlineKeyboardButton("🔙ʙᴀᴄᴋ", callback_data="help")
+            InlineKeyboardButton("🔙ʙᴀᴄᴋ", callback_data="help"),
+            InlineKeyboardButton('🏡ʜᴏᴍᴇ', callback_data='start')
         ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
