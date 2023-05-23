@@ -10,8 +10,7 @@ Jᴜsᴛ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ Aɴᴅ Cʜᴀɴɴᴇʟ Aɴᴅ 
 Fᴏʀ Mᴏʀᴇ Dᴇᴛᴀɪʟs Cʟɪᴄᴋ Hᴇʟᴘ Bᴜᴛᴛᴏɴ Bᴇʟᴏᴡ..
 </b>"""    
     
-    HELP_TEXT = """
-<b><i><u>How To Use Me!?</u></i></b>
+    HELP_TEXT = """<b><i><u>How To Use Me!?</u></i></b>
 
 <i>
 -> Add Me To Any Group And Make Me Admin
@@ -19,25 +18,20 @@ Fᴏʀ Mᴏʀᴇ Dᴇᴛᴀɪʟs Cʟɪᴄᴋ Hᴇʟᴘ Bᴜᴛᴛᴏɴ Bᴇʟᴏ
 </i>
 <b>Bot Commands (Works Only In Groups) :</b>
 
--> Click Below Buttons to know more✔
+-> Click Below Buttons to know more ✔
 """
    
-    CON_TXT = """
-    -> <code>/add chat_id</code>
+    CONNECTION_TXT = """-> <code>/add chat_id</code>
                 OR                  - To Connect A Group With A Channel (Bot Should Be Admin With Full Previlages In Both Group And Channel)
      <code>/add @Username</code>
 """
-    DEL_TXT = """
-     
-    -> <code>/del chat_id</code>
+    DELETE_TXT = """-> <code>/del chat_id</code>
                 OR                  - To disconnect A Group With A Channel
      <code>/del @Username</code>
      
     -> <code>/delall</code>  - This Command Will Disconnect All Connected Channel With The Group And Deletes All Its File From DB 
 """
-    SET_TXT = """
-    
-    -> <code>/settings</code> -  This Command Will Display You A Settings Pannel Instance Which Can Be Used To Tweek Bot's Settings Accordingly
+    SETTING_TXT = """-> <code>/settings</code> -  This Command Will Display You A Settings Pannel Instance Which Can Be Used To Tweek Bot's Settings Accordingly
 
             -> <code>Channel</code> - Button Will Show You All The Connected Chats With The Group And Will Show Buttons Correspnding To There Order For Furthur Controls
             
