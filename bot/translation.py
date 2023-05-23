@@ -59,3 +59,6 @@ Fᴏʀ Mᴏʀᴇ Dᴇᴛᴀɪʟs Cʟɪᴄᴋ Hᴇʟᴘ Bᴜᴛᴛᴏɴ Bᴇʟᴏ
 
 <b>➥ Source Code</b> : <b> SOURCE CODE IS PVT LTD </b>
 """
+    ALRT_TXT = """This is Not your Request
+Request Yourself...!!
+"""
