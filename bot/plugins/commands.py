@@ -7,14 +7,14 @@ from bot.database import Database # pylint: disable=import-error
 
 db = Database()
 
-F_SUB = "wudixh"
+force_channel = "wudixh"
 
 @Client.on_message(filters.command(["start"]) & filters.private, group=1)
 async def start(bot, update):
     
-    if F_SUB:
+    if force_channel:
         try:
-            user = await bot.get_chat_member(F_SUB, update.from_user.id)
+            user = await bot.get_chat_member(force_channel, update.from_user.id)
             if user.status == "kicked out":
                 await update.reply_text("You Are Banned")
                 return
@@ -22,7 +22,7 @@ async def start(bot, update):
             await update.reply_text(
                 text="🔊 𝗝𝗼𝗶𝗻 𝗢𝘂𝗿 𝗠𝗮𝗶𝗻 𝗰𝗵𝗮𝗻𝗻𝗲𝗹 🤭.\n\nDᴏ Yᴏᴜ Wᴀɴᴛ Mᴏᴠɪᴇs? Tʜᴇɴ Jᴏɪɴ Oᴜʀ Mᴀɪɴ Cʜᴀɴɴᴇʟ Aɴᴅ Wᴀᴛᴄʜ ɪᴛ.😂\n Tʜᴇɴ ɢᴏ ᴛᴏ ᴛʜᴇ ɢʀᴏᴜᴘ ᴀɴᴅ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ᴍᴏᴠɪᴇ ᴀɢᴀɪɴ ᴀɴᴅ ɢɪᴠᴇ ɪᴛ ᴀ sᴛᴀʀᴛ...!😁",
                 reply_markup=InlineKeyboardMarkup( [[
-                 InlineKeyboardButton("🔊 𝗝𝗼𝗶𝗻 𝗢𝘂𝗿 𝗠𝗮𝗶𝗻 𝗰𝗵𝗮𝗻𝗻𝗲𝗹 🤭", url=f"t.me/{F_SUB}")
+                 InlineKeyboardButton("🔊 𝗝𝗼𝗶𝗻 𝗢𝘂𝗿 𝗠𝗮𝗶𝗻 𝗰𝗵𝗮𝗻𝗻𝗲𝗹 🤭", url=f"t.me/{force_channel}")
                  ]]
                  )
             )
