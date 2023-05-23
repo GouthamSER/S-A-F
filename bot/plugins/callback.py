@@ -52,7 +52,7 @@ async def cb_navg(bot, update: CallbackQuery):
         VERIFY[str(chat_id)] = admin_list
     
     if not ((user_id == ruser_id) or (user_id in admin_list)): # Checks if user is same as requested user or is admin
-        await update.answer("Nice Try ;)",show_alert=True)
+        await update.answer(Translation.ALRT_TXT),show_alert=True) #Translation ALRT_TXT VARIABLE
         return
 
 
