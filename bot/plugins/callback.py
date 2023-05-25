@@ -1606,7 +1606,7 @@ async def callback_data(bot, update: CallbackQuery):
 
     query_data = update.data
 
-    if query_data == "start":
+    if update.data == "start":
         buttons = [[
                     InlineKeyboardButton('Aᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ💕', url=f"http://t.me/im_kuttu2_bot?startgroup=true")
                 ],[
@@ -1617,14 +1617,14 @@ async def callback_data(bot, update: CallbackQuery):
     
         reply_markup = InlineKeyboardMarkup(buttons)
         
-        await update.message.edit_text(
-            Translation.START_TEXT.format(update.from_user.mention),
+        await update.message.edit(
+            text = Translation.START_TEXT.format(update.from_user.mention),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
 
 
-    elif query_data == "help":
+    elif update.data == "help":
         buttons = [[
             InlineKeyboardButton("Connect🎛", callback_data='connection'),
             InlineKeyboardButton("Delete♻", callback_data='delete'),
@@ -1638,52 +1638,52 @@ async def callback_data(bot, update: CallbackQuery):
     
         reply_markup = InlineKeyboardMarkup(buttons)
         
-        await update.message.edit_text(
-            Translation.HELP_TEXT,
+        await update.message.edit(
+            text = Translation.HELP_TEXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
 
-    elif query_data == "connection":
+    elif update.data == "connection":
         buttons = [[
             InlineKeyboardButton("🔙ʙᴀᴄᴋ", callback_data="help")
         ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
         
-        await update.message.edit_text(
-            Translation.CONNECTION_TXT,
+        await update.message.edit(
+            text = Translation.CONNECTION_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
         
-    elif query_data == "delete":
+    elif update.data == "delete":
         buttons = [[
             InlineKeyboardButton("🔙ʙᴀᴄᴋ", callback_data="help")
         ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
         
-        await update.message.edit_text(
-            Translation.DELETE_TXT,
+        await update.message.edit(
+            text = Translation.DELETE_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
         
-    elif query_data == "set":
+    elif update.data == "set":
         buttons = [[
             InlineKeyboardButton("🔙ʙᴀᴄᴋ", callback_data="help")
         ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
         
-        await update.message.edit_text(
-            Translation.SETTING_TXT,
+        await update.message.edit(
+            text = Translation.SETTING_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
 
-    elif query_data == "about": 
+    elif update.data == "about": 
         buttons = [[
             InlineKeyboardButton("🔙ʙᴀᴄᴋ", callback_data="help"),
             InlineKeyboardButton('🏡ʜᴏᴍᴇ', callback_data='start')
@@ -1691,13 +1691,13 @@ async def callback_data(bot, update: CallbackQuery):
         
         reply_markup = InlineKeyboardMarkup(buttons)
         
-        await update.message.edit_text(
-            Translation.ABOUT_TEXT,
+        await update.message.edit(
+            text = Translation.ABOUT_TEXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
 
-    elif query_data == "close":
+    elif update.data == "close":
         await update.message.delete()
 
 
