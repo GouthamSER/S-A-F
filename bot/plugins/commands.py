@@ -123,3 +123,28 @@ async def about(bot, update):
         parse_mode=enums.ParseMode.HTML,
         reply_to_message_id=update.id
     )
+    
+@Client.on_message(filters.command(("connect"))
+async def connect(bot, update):
+   c=await update.reply_text(
+       text=Translation.CONNECT_TXT
+   )
+     await asyncio.sleep(30)
+     await c.delete()
+
+@Client.on_message(filters.command(("delete"))
+async def connect(bot, update):
+   d=await update.reply_text(
+       text=Translation.DELETE_TXT
+   )
+    await asyncio.sleep(30)
+    await d.delete()
+              
+@Client.on_message(filters.command(("settings"))
+async def connect(bot, update):
+   s=await update.reply_text(
+       text=Translation.SETTINGS_TXT
+   )
+                   
+   await asyncio.sleep(30)
+   await s.delete()
