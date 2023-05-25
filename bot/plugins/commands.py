@@ -133,7 +133,7 @@ async def connect(bot, update):
      await c.delete()
 
 @Client.on_message(filters.command(("delete"))
-async def connect(bot, update):
+async def delete(bot, update):
    d=await update.reply_text(
        text=Translation.DELETE_TXT
    )
@@ -141,7 +141,7 @@ async def connect(bot, update):
     await d.delete()
               
 @Client.on_message(filters.command(("settings"))
-async def connect(bot, update):
+async def settings(bot, update):
    s=await update.reply_text(
        text=Translation.SETTINGS_TXT
    )
