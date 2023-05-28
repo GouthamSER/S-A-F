@@ -7,14 +7,14 @@ from bot.database import Database # pylint: disable=import-error
 
 db = Database()
 
-force_channel = "wudixh"
+FORCE_SUB = "wudixh13"
 
 @Client.on_message(filters.command(["start"]) & filters.private, group=1)
 async def start(bot, update):
     
-    if force_channel:
+    if FORCE_SUB:
         try:
-            user = await bot.get_chat_member(force_channel, update.from_user.id)
+            user = await bot.get_chat_member(FORCE_SUB, update.from_user.id)
             if user.status == "kicked out":
                 await update.reply_text("You Are Banned")
                 return
@@ -22,7 +22,7 @@ async def start(bot, update):
             await update.reply_text(
                 text="🔊 𝗝𝗼𝗶𝗻 𝗢𝘂𝗿 𝗠𝗮𝗶𝗻 𝗰𝗵𝗮𝗻𝗻𝗲𝗹 🤭.\n\nDᴏ Yᴏᴜ Wᴀɴᴛ Mᴏᴠɪᴇs? Tʜᴇɴ Jᴏɪɴ Oᴜʀ Mᴀɪɴ Cʜᴀɴɴᴇʟ Aɴᴅ Wᴀᴛᴄʜ ɪᴛ.😂\n Tʜᴇɴ ɢᴏ ᴛᴏ ᴛʜᴇ ɢʀᴏᴜᴘ ᴀɴᴅ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ᴍᴏᴠɪᴇ ᴀɢᴀɪɴ ᴀɴᴅ ɢɪᴠᴇ ɪᴛ ᴀ sᴛᴀʀᴛ...!😁",
                 reply_markup=InlineKeyboardMarkup( [[
-                 InlineKeyboardButton("🔊 𝗝𝗼𝗶𝗻 𝗢𝘂𝗿 𝗠𝗮𝗶𝗻 𝗰𝗵𝗮𝗻𝗻𝗲𝗹 🤭", url=f"t.me/{force_channel}")
+                 InlineKeyboardButton("🔊 𝗝𝗼𝗶𝗻 𝗢𝘂𝗿 𝗠𝗮𝗶𝗻 𝗰𝗵𝗮𝗻𝗻𝗲𝗹 🤭", url=f"t.me/{FORCE_SUB}")
                  ]]
                  )
             )
@@ -59,12 +59,16 @@ async def start(bot, update):
                 reply_markup=InlineKeyboardMarkup(
                         [[
                             InlineKeyboardButton('💕Movie Group❤️', url="https://t.me/wudixh")
+                        ], [
+                            InlineKeyboardButton('Dᴇᴠᴇʟᴏᴘᴇʀ ✔', url="https://t.me/wudixh13/4")
                         ]]
                 ))
+            
         except Exception as e:
             await update.reply_text(f"<b>Error:</b>\n<code>{e}</code>", True, parse_mode=enums.ParseMode.HTML)
             LOGGER(name).error(e)
         return
+
 #pmstart
     buttons = [[
                     InlineKeyboardButton('Aᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ💕', url=f"http://t.me/im_kuttu2_bot?startgroup=true")
@@ -129,22 +133,18 @@ async def connect(bot, update):
    c=await update.reply_text(
        text=Translation.CONNECT_TXT
    )
-     await asyncio.sleep(30)
-     await c.delete()
+     await c.delete(30)
 
 @Client.on_message(filters.command(["delete"]) & filters.private, group=1)
 async def delete(bot, update):
    d=await update.reply_text(
        text=Translation.DELETE_TXT
    )
-    await asyncio.sleep(30)
-    await d.delete()
+    await d.delete(30)
               
 @Client.on_message(filters.command(["settings"]) & filters.private, group=1)
 async def settings(bot, update):
    s=await update.reply_text(
        text=Translation.SETTINGS_TXT
    )
-                   
-   await asyncio.sleep(30)
-   await s.delete()
+   await s.delete(30)
