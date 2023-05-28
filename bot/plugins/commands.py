@@ -124,7 +124,7 @@ async def about(bot, update):
         reply_to_message_id=update.id
     )
     
-@Client.on_message(filters.command(("connect"))
+@Client.on_message(filters.command(["connect"]) & filters.private, group=1)
 async def connect(bot, update):
    c=await update.reply_text(
        text=Translation.CONNECT_TXT
@@ -132,7 +132,7 @@ async def connect(bot, update):
      await asyncio.sleep(30)
      await c.delete()
 
-@Client.on_message(filters.command(("delete"))
+@Client.on_message(filters.command(["delete"]) & filters.private, group=1)
 async def delete(bot, update):
    d=await update.reply_text(
        text=Translation.DELETE_TXT
@@ -140,7 +140,7 @@ async def delete(bot, update):
     await asyncio.sleep(30)
     await d.delete()
               
-@Client.on_message(filters.command(("settings"))
+@Client.on_message(filters.command(["settings"]) & filters.private, group=1)
 async def settings(bot, update):
    s=await update.reply_text(
        text=Translation.SETTINGS_TXT
