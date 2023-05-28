@@ -127,24 +127,4 @@ async def about(bot, update):
         parse_mode=enums.ParseMode.HTML,
         reply_to_message_id=update.id
     )
-    
-@Client.on_message(filters.command(["connect"]) & filters.private, group=1)
-async def connect(bot, update):
-   c=await update.reply_text(
-       text=Translation.CONNECT_TXT
-   )
-     await c.delete(30)
-
-@Client.on_message(filters.command(["delete"]) & filters.private, group=1)
-async def delete(bot, update):
-   d=await update.reply_text(
-       text=Translation.DELETE_TXT
-   )
-    await d.delete(30)
-              
-@Client.on_message(filters.command(["settings"]) & filters.private, group=1)
-async def settings(bot, update):
-   s=await update.reply_text(
-       text=Translation.SETTINGS_TXT
-   )
-   await s.delete(30)
+   
