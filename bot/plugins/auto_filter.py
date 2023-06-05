@@ -203,11 +203,7 @@ async def auto_filter(bot, update):
 
         try:
             await update.reply_text(
-                text=f"""Hᴇʀᴇ Is Wʜᴀᴛ I Fᴏᴜɴᴅ Fᴏʀ Yᴏᴜʀ Sᴇaʀᴄʜ
-ᴛɪᴛʟᴇ        : <code>{query}</code>
-ʀᴇQᴜᴇꜱᴛᴇᴅ ʙʏ : {update.from_user.mention}
-ᴜᴘʟᴏᴀᴅᴇᴅ ʙʏ  : <i> Eʟ Dᴏʀᴀᴅᴏ </i>""",
-                
+                text="Hᴇʀᴇ Is Wʜᴀᴛ I Fᴏᴜɴᴅ Fᴏʀ Yᴏᴜʀ Sᴇaʀᴄʜ",
                 reply_markup=reply_markup,
                 parse_mode=enums.ParseMode.HTML,
                 reply_to_message_id=update.id
