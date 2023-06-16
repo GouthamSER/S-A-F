@@ -1639,7 +1639,7 @@ async def callback_data(bot, update: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(buttons)
         
         await update.message.edit(
-            text = Translation.HELP_TEXT,
+            text = Translation.HELP_TEXT + "_",
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
