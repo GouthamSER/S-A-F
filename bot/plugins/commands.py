@@ -7,7 +7,7 @@ from bot.database import Database # pylint: disable=import-error
 
 db = Database()
 
-FORCE_SUB = "wudixh13"
+FORCE_SUB = "wudixh14"
 
 @Client.on_message(filters.command(["start"]) & filters.private, group=1)
 async def start(bot, update):
