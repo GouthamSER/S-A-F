@@ -1,6 +1,6 @@
 Dnspython
 Motor
-Pyrogram
+pyrofork
 Pymongo
 Requests 
 TgCrypto
