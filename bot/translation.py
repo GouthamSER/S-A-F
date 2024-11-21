@@ -2,7 +2,7 @@
 
 class Translation(object):
     
-    START_TEXT = """<i>Hey {}!!</i>
+    START_TEXT = """<blockquote><i>Hey {}!!</i></blockquote>
 <b>Aᴍ Jᴜsᴛ A Aᴅᴠᴀɴᴄᴇ Aᴜᴛᴏ Fɪʟᴛᴇʀ Bᴏᴛ....😉
 
 Jᴜsᴛ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ Aɴᴅ Cʜᴀɴɴᴇʟ Aɴᴅ Cᴏɴɴᴇᴄᴛ Tʜᴇᴍ Aɴᴅ Sᴇᴇ Mʏ Pᴇᴠᴇʀs 🔥🔥😝
